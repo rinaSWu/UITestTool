@@ -9,6 +9,7 @@
   "description": "",
   "devDependencies": {
     "@applitools/eyes-playwright": "^1.46.3",
+    "@argos-ci/playwright": "^6.6.1",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.9.1"
   }
