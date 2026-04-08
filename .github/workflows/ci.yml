@@ -24,13 +24,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-playwright-
     - name: Install dependencies
-      run: npm ci
+      run: npm install
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
+        ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v3
       if: always()
         with:
