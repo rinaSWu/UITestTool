@@ -7,7 +7,6 @@ import { SauceCartPage } from './pages/CartPage';
 import { SauceCheckoutPage } from './pages/CheckoutPage';
 import { SauceCompletePage } from './pages/CompletePage';
 
-process.env.ARGOS_API_KEY = process.env.ARGOS_API_KEY || 'argos_0691b6e5b19b25a76048def8e1719c7e63';
 
 const SAUCE_URL = 'https://www.saucedemo.com/';
 
