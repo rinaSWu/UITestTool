@@ -1,13 +1,42 @@
 import { test } from '@applitools/eyes-playwright/fixture';
+import { HomePage } from '../pages/HomePage';
+import { FormsPage } from '../pages/FormsPage';
+import { FormLayoutsPage } from '../pages/FormLayoutsPage';
+import { ChartsPage } from '../pages/ChartsPage';
 
-test('Applitools VisualTesting', async ({ page, eyes }) => {
-  await page.goto('/');
+test.describe('Applitools Tests', () => {
+  let homePage: HomePage;
+  let formsPage: FormsPage;
+  let formLayoutsPage: FormLayoutsPage;
+  let chartsPage: ChartsPage;
 
-  await eyes.check('Home Page')
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePage(page);
+    formsPage = new FormsPage(page);
+    formLayoutsPage = new FormLayoutsPage(page);
+    chartsPage = new ChartsPage(page);
+    await homePage.goto();
+  });
 
-  await page.getByText('Forms').click()
-  await page.getByText('Form Layouts').click()
+  test.afterEach(async ({ eyes }) => {
+    await eyes.closeAsync();
+  });
 
-  await eyes.check('Form Layouts Page')
+  test('Visual Testing', async ({ eyes }) => {
+    await homePage.check(eyes);
 
+    await formsPage.clickForms();
+    await formsPage.clickFormLayouts();
+
+    await formLayoutsPage.checkFormLayoutsPage(eyes);
+    await formLayoutsPage.fillInlineForm('John Smith', 'john.smith@example.com', eyes);
+    await formLayoutsPage.checkCheckbox(eyes);
+    await formLayoutsPage.scrollToGrid(eyes);
+    await formLayoutsPage.fillGridForm('grid@example.com', 'password123', eyes);
+    await formLayoutsPage.scrollToHorizontal(eyes);
+
+    await chartsPage.clickCharts();
+    await chartsPage.clickEcharts();
+    await chartsPage.checkChartsPage(eyes);
+  });
 });

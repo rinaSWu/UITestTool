@@ -9,11 +9,11 @@ export default defineConfig<EyesFixture>({
     /* Configuration for Eyes VisualAI */
     eyesConfig: {
       /* The following and other configuration parameters are documented at: <url> */
-      apiKey: '', // alternatively, set this via environment variable APPLITOOLS_API_KEY
+      apiKey: 'DXKuDa7V2Wd7CViH6RScbDqH1vXzuTFZOPA8uHYW8f4110', // alternatively, set this via environment variable APPLITOOLS_API_KEY
 
     },
 
-    baseURL: 'http://localhost:4200',
+    baseURL: 'http://localhost:4200/',
     viewport: { height: 720, width: 1280 }
   },
 
