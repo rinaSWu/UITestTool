@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import { createArgosReporterOptions } from "@argos-ci/playwright/reporter";
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -15,7 +14,10 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    process.env.CI ? 'dot' : 'list',
+    ['@argos-ci/playwright/reporter'],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -41,30 +43,6 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-    reporter: [
-    // Use "dot" reporter on CI, "list" otherwise (Playwright default).
-    process.env.CI ? ["dot"] : ["list"],
-    // Add Argos reporter.
-    [
-      "@argos-ci/playwright/reporter",
-      createArgosReporterOptions({
-        // Upload to Argos on CI only.
-        uploadToArgos: !!process.env.CI,
-
-        // Set your Argos token (required if not using GitHub Actions).
-        token: "argos_0691b6e5b19b25a76048def8e1719c7e63",
-      }),
-    ],
-  ],
-
-  // Setup recording option to enable test debugging features.
-  use: {
-    // Collect trace when retrying the failed test.
-    trace: 'on-first-retry',
-
-    // Capture screenshot after each test failure.
-    screenshot: "only-on-failure",
-  },
 
     /* Test against mobile viewports. */
     // {
