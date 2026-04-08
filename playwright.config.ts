@@ -25,6 +25,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: "only-on-failure",
   },
 
   /* Configure projects for major browsers */
@@ -72,5 +73,3 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
-process.env.ARGOS_TOKEN = process.env.ARGOS_TOKEN || 'argos_0691b6e5b19b25a76048def8e1719c7e63';
