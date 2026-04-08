@@ -8,6 +8,7 @@ on:
 
 env:
   APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+  ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
 
 jobs:
   test:

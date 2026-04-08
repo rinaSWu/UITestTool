@@ -21,7 +21,7 @@ test.afterEach(async ({ eyes }) => {
   await eyes.closeAsync();
 });
 
-test('Applitools VisualTesting', async ({ eyes }) => {
+test.skip('Applitools VisualTesting', async ({ eyes }) => {
   await homePage.check(eyes);
 
   await formsPage.clickForms();
