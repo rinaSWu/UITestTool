@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@applitools/eyes-playwright": "^1.46.3",
-    "@argos-ci/cli": "^0.4.0",
-    "@argos-ci/playwright": "^0.0.3",
+    "@applitools/eyes-playwright": "^1.21.0",
+    "@argos-ci/cli": "^4.1.4",
+    "@argos-ci/playwright": "^6.6.1",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.9.1"
   }
