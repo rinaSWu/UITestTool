@@ -26,9 +26,9 @@ export class SauceInventoryPage extends BasePage {
   }
 
   async clickItemByIndex(index: number) {
-    await this.page.locator('.inventory_item').nth(index).click();
+    await this.page.locator('.inventory_item_name').nth(index).click();
+    await expect(this.page).toHaveURL(/inventory-item/);
   }
-
   async addtocartItemByIndex(index: number) {
     await this.page.locator('.inventory_item').nth(index).locator('button.btn_inventory').click();
   }
