@@ -29,10 +29,11 @@ export class SauceInventoryDetailPage extends BasePage {
 
   async clickBackToProducts() {
     await this.page.locator('.inventory_details_back_button').click();
+    await expect(this.page).toHaveURL(/inventory/);
   }
 
   async openCart() {
     await this.page.locator('.shopping_cart_link').click();
-    await expect(this.page).toHaveURL(/cart.html$/);
+    await expect(this.page).toHaveURL(/cart/);
   }
 }

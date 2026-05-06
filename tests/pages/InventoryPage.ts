@@ -38,6 +38,9 @@ export class SauceInventoryPage extends BasePage {
     await this.firstItem.locator('button.btn_inventory').click();
     return name;
   }
+  async getItemPriceByIndex(index: number) {
+    return this.page.locator('.inventory_item_price').nth(index);
+  }
 
   async openCart() {
     await this.page.click('.shopping_cart_link');

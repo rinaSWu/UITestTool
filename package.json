@@ -13,7 +13,8 @@
     "@applitools/eyes-playwright": "^1.21.0",
     "@argos-ci/cli": "^4.1.4",
     "@argos-ci/playwright": "^6.6.1",
-    "@playwright/test": "^1.49.0",
-    "@types/node": "^22.9.1"
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^22.9.1",
+    "playwright-bdd": "^8.5.0"
   }
 }
